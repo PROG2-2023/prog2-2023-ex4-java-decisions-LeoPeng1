@@ -334,12 +334,12 @@ public class FlightBooking {
         setTicketNumber();
         setDepartureDate(departureDate);
         setReturnDate(returnDate);
-        String x = "Dear " + passengerFullName+". Thank you for booking your flight with "+ flightCompany+".\nFollowing are the details of your booking and the trip: \nTicket Number:"
-                +ticketNumber+"\nFrom " +tripSource+ " to "+tripDestination +"\nDate of departure: "+departureDate+"\nDate of return: "+returnDate+"(Changed from old returningDate to new returningDate)\nTotal passengers:"+
+        String x = " Thank you for booking your flight with "+ flightCompany+".\nFollowing are the details of your booking and the trip: \nTicket Number:"
+                +ticketNumber+"\nPassenger Name: " +passengerFullName+"\nFrom " +tripSource+ " to "+tripDestination +"\nDate of departure: "+departureDate+"\nDate of return: "+returnDate+"(Changed from old returningDate to new returningDate)\nTotal passengers:"+
                 totalPassengers+"\nTotal ticket price in Euros: "+totalTicketPrice;
 
-        String y = "Dear " + passengerFullName+". Thank you for booking your flight with "+ flightCompany+".\nFollowing are the details of your booking and the trip: \nTicket Number:"
-                +ticketNumber+"\nFrom " +tripSource+ " to "+tripDestination +"\nDate of departure: "+departureDate+"\nDate of return: "+returnDate+"(Changed from old returningDate to new returningDate)\nTotal passengers:"+
+        String y =" Thank you for booking your flight with "+ flightCompany+".\nFollowing are the details of your booking and the trip: \nTicket Number:"
+                +ticketNumber+ "\nPassenger Name:" + passengerFullName+"\nFrom " +tripSource+ " to "+tripDestination +"\nDate of departure: "+departureDate+"\nDate of return: "+returnDate+"(Changed from old returningDate to new returningDate)\nTotal passengers:"+
                 totalPassengers+"\nTotal ticket price in Euros: "+totalTicketPrice+"\nIMPORTANT NOTICE: As per our policy, the return date was changed because it was \n" +
                 "less than two days apart from your departure date.";
         if (xy)
