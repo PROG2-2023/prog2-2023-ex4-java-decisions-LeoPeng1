@@ -67,8 +67,8 @@ public class FlightBooking {
     public BookingClass getBookingClass(){
         return bookingClass;
     }
-    public void setBookingClass(String _book){
-        switch (_book){
+    public void setBookingClass(String bookingClass){
+        switch (bookingClass){
             case "1":
                 this.bookingClass = BookingClass.FIRST;
                 break;
@@ -84,8 +84,8 @@ public class FlightBooking {
         }
 
     }
-    public void setTripType(String _type){
-        switch (_type) {
+    public void setTripType(String tripType){
+        switch (tripType) {
             case "1":
                 this.tripType = TripType.ONE_WAY;
                 break;
@@ -97,9 +97,9 @@ public class FlightBooking {
         }
     }
 
-    public void setTripSource(String _source)
+    public void setTripSource(String tripSource)
     {
-        switch (_source){
+        switch (tripSource){
             case "1":
                 this.tripSource = TripSource.NANJING;
                 this.sourceAirport = SourceAirport.NANJING_LUKOU_INTERNATIONAL_AIRPORT;
@@ -120,9 +120,9 @@ public class FlightBooking {
                 System.out.println("Please enter the correct number");
         }
     }
-    public void setTripDestination(String _source,String _destination)
+    public void setTripDestination(String tripSource,String tripDestination)
     {
-        switch (_destination){
+        switch (tripDestination){
             case "1":
                 this.tripDestination = TripDestination.NANJING;
                 this.destinationairport = Destinationairport.NANJING_LUKOU_INTERNATIONAL_AIRPORT;
