@@ -149,6 +149,7 @@ public class FlightBooking {
     }
 
     public void setReturnDate(LocalDate returnDate){
+        this.returnDate = returnDate;
             Period p = Period.between(departureDate,returnDate);
             if (p.getDays() < 2 && p.getMonths() <=0 &&p.getYears()<=0) {
                 this.returnDate = departureDate.plusDays(2);
@@ -330,7 +331,9 @@ public class FlightBooking {
     {   setDepartingTicketPrice( childPassengers, adultPassengers);
         setReturnTicketPrice();
         setTotalTicketPrice();
-
+        setTicketNumber();
+        setDepartureDate(departureDate);
+        setReturnDate(returnDate);
         String x = "Dear " + passengerFullName+". Thank you for booking your flight with "+ flightCompany+".\nFollowing are the details of your booking and the trip: \nTicket Number:"
                 +ticketNumber+"\nFrom " +tripSource+ " to "+tripDestination +"\nDate of departure: "+departureDate+"\nDate of return: "+returnDate+"(Changed from old returningDate to new returningDate)\nTotal passengers:"+
                 totalPassengers+"\nTotal ticket price in Euros: "+totalTicketPrice;
