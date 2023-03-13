@@ -6,9 +6,9 @@ import java.time.LocalDate;
 import org.junit.Test;
 
 
-public class FlightBookingTest 
+public class FlightBookingTest
 {
-    
+
     @Test
     public void testing_Setting_Up_Trip_Source_Using_Enum() {
         FlightBooking.TripSource tripSource = FlightBooking.TripSource.NANJING;
@@ -33,15 +33,15 @@ public class FlightBookingTest
         FlightBooking fb = new FlightBooking(null, null, null, 0, 0);
         fb.setTripSource("2");
         FlightBooking.TripSource expected = FlightBooking.TripSource.BEIJING;
-        FlightBooking.TripSource  result = fb.getTripSource(); 
+        FlightBooking.TripSource  result = fb.getTripSource();
         assertEquals(expected, result);
     }
 
     @Test
     public void testing_Departure_And_Return_Date_Difference() {
-        
+
         FlightBooking fb = new FlightBooking(null, null, null, 0, 0);
-        
+
         String sdepart = "2023-03-04";
         LocalDate departureDate = LocalDate.parse(sdepart);
 
@@ -55,7 +55,7 @@ public class FlightBookingTest
 
         fb.setReturnDate(returnDate);
         LocalDate result = fb.getReturnDate();
-        
+
         //int result = returningOn.compareTo(departingOn);
 
         //assertNotEquals(expected, result);
@@ -64,9 +64,9 @@ public class FlightBookingTest
 
     @Test
     public void testing_Conditional_Ticket_Number_Generation() {
-        
+
         FlightBooking fb = new FlightBooking(null, null, null, 0, 0);
-        
+
         FlightBooking.TripSource source = FlightBooking.TripSource.NANJING;
         FlightBooking.TripDestination destination = FlightBooking.TripDestination.BEIJING;
 
@@ -79,7 +79,7 @@ public class FlightBookingTest
 
         fb.setTripType("1");
         fb.setBookingClass("1");
-        
+
         String expectedTicketNumber = "11FASDFDOM";
 
         String expectedSubstring1 = expectedTicketNumber.substring(0,2);
@@ -88,7 +88,7 @@ public class FlightBookingTest
         String ticketNumber = fb.getTicketNumber();
 
         String returnedSubstring1 = ticketNumber.substring(0, 2);
-        
+
         String returnedSubstring2 = ticketNumber.substring(7, 9);
 
         if(expectedSubstring1.equals(returnedSubstring1) && expectedSubstring2.equals(returnedSubstring2)){
@@ -102,7 +102,7 @@ public class FlightBookingTest
     @Test
     public void testing_Conditional_Ticket_Price_Calculation() {
         FlightBooking fb = new FlightBooking(null, null, null, 0, 0);
-        
+
         FlightBooking.TripSource source = FlightBooking.TripSource.NANJING;
         FlightBooking.TripDestination destination = FlightBooking.TripDestination.BEIJING;
 
@@ -132,5 +132,5 @@ public class FlightBookingTest
         else {
             assertEquals(1, 2);
         }
-    }   
+    }
 }
