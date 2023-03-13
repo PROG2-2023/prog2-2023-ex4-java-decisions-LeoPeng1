@@ -40,8 +40,7 @@ public class Main {
         String destination = sc.next();
         fb.setTripDestination(source,destination);
         fb.setClassification(source,destination);
-
-        fb.toString();
+        System.out.println(fb);
 
     }
 

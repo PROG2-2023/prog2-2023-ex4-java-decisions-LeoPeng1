@@ -53,6 +53,7 @@ public class FlightBooking {
     private TripType tripType;
     private Destinationairport destinationairport;
     private String classification;
+    boolean xy=false;
 
 
     public FlightBooking (String passengerFullName,LocalDate departureDate,LocalDate returnDate,int childPassengers,int adultPassengers){
@@ -151,6 +152,7 @@ public class FlightBooking {
             Period p = Period.between(departureDate,returnDate);
             if (p.getDays() < 2 && p.getMonths() <=0 &&p.getYears()<=0) {
                 this.returnDate = departureDate.plusDays(2);
+                this.xy = true;
             } else
                 this.returnDate = returnDate;
 
@@ -336,21 +338,23 @@ public class FlightBooking {
         }
     }
     public String toString()
-    {
+    {   setDepartingTicketPrice( childPassengers, adultPassengers);
+        setReturnTicketPrice();
+        setTotalTicketPrice();
+
         String x = "Dear " + passengerFullName+". Thank you for booking your flight with "+ flightCompany+".\nFollowing are the details of your booking and the trip: \nTicket Number:"
-                +getTicketNumber()+"\nFrom " +getTripSource()+ " to "+getTripDestination() +"\nDate of departure: "+departureDate+"\nDate of return: "+getReturnDate()+"(Changed from old returningDate to new returningDate)\nTotal passengers:"+
+                +ticketNumber+"\nFrom " +tripSource+ " to "+tripDestination +"\nDate of departure: "+departureDate+"\nDate of return: "+returnDate+"(Changed from old returningDate to new returningDate)\nTotal passengers:"+
                 totalPassengers+"\nTotal ticket price in Euros: "+totalTicketPrice;
 
         String y = "Dear " + passengerFullName+". Thank you for booking your flight with "+ flightCompany+".\nFollowing are the details of your booking and the trip: \nTicket Number:"
-                +getTicketNumber()+"\nFrom " +getTripSource()+ " to "+getTripDestination() +"\nDate of departure: "+departureDate+"\nDate of return: "+getReturnDate()+"(Changed from old returningDate to new returningDate)\nTotal passengers:"+
+                +ticketNumber+"\nFrom " +tripSource+ " to "+tripDestination +"\nDate of departure: "+departureDate+"\nDate of return: "+returnDate+"(Changed from old returningDate to new returningDate)\nTotal passengers:"+
                 totalPassengers+"\nTotal ticket price in Euros: "+totalTicketPrice+"\nIMPORTANT NOTICE: As per our policy, the return date was changed because it was \n" +
                 "less than two days apart from your departure date.";
-        Period p = Period.between(departureDate,returnDate);
-        if (p.getDays() < 2 && p.getMonths() <=0 &&p.getYears()<=0)
+        if (xy)
         {
             return y;
         }
-        else
+
             return x;
 
     }
