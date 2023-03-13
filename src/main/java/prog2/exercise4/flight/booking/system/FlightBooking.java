@@ -24,14 +24,14 @@ public class FlightBooking {
         BEIJING, SHANGHAI, OULU, NANJING, PARIS,HELSINKI
     }
     enum SourceAirport{
-        Nanjing_Lukou_International_Airport, Beijing_Capital_International_Airport,
-        Shanghai_Pudong_International_Airport, Oulu_Airport, Helsinki_Airport,
-        Paris_Charles_de_Gaulle_Airport
+        NANJING_LUKOU_INTERNATIONAL_AIRPORT, BEIJING_CAPITAL_INTERNATIONAL_AIRPORT,
+        SHANGHAI_PUDONG_INTERNATIONAL_AIRPORT, OULU_AIRPORT, HELSINKI_AIRPORT,
+        PARIS_CHARLES_DE_GAULLE_AIRPORT
     }
     enum Destinationairport{
-        Nanjing_Lukou_International_Airport, Beijing_Capital_International_Airport,
-        Shanghai_Pudong_International_Airport, Oulu_Airport, Helsinki_Airport,
-        Paris_Charles_de_Gaulle_Airport
+        NANJING_LUKOU_INTERNATIONAL_AIRPORT, BEIJING_CAPITAL_INTERNATIONAL_AIRPORT,
+        SHANGHAI_PUDONG_INTERNATIONAL_AIRPORT, OULU_AIRPORT, HELSINKI_AIRPORT,
+        PARIS_CHARLES_DE_GAULLE_AIRPORT
     }
     private final String flightCompany = "Flights-of-Fancy";
     private String passengerFullName;
@@ -102,19 +102,19 @@ public class FlightBooking {
         switch (_source){
             case "1":
                 this.tripSource = TripSource.NANJING;
-                this.sourceAirport = SourceAirport.Nanjing_Lukou_International_Airport;
+                this.sourceAirport = SourceAirport.NANJING_LUKOU_INTERNATIONAL_AIRPORT;
                 break;
             case "2":
                 this.tripSource = TripSource.BEIJING;
-                this.sourceAirport = SourceAirport.Beijing_Capital_International_Airport;
+                this.sourceAirport = SourceAirport.BEIJING_CAPITAL_INTERNATIONAL_AIRPORT;
                 break;
             case "3":
                 this.tripSource = TripSource.OULU;
-                this.sourceAirport = SourceAirport.Oulu_Airport;
+                this.sourceAirport = SourceAirport.OULU_AIRPORT;
                 return;
             case "4":
                 this.tripSource = TripSource.HELSINKI;
-                this.sourceAirport = SourceAirport.Helsinki_Airport;
+                this.sourceAirport = SourceAirport.HELSINKI_AIRPORT;
                 break;
             default:
                 System.out.println("Please enter the correct number");
@@ -125,19 +125,19 @@ public class FlightBooking {
         switch (_destination){
             case "1":
                 this.tripDestination = TripDestination.NANJING;
-                this.destinationairport = Destinationairport.Nanjing_Lukou_International_Airport;
+                this.destinationairport = Destinationairport.NANJING_LUKOU_INTERNATIONAL_AIRPORT;
                 break;
             case "2":
                 this.tripDestination = TripDestination.BEIJING;
-                this.destinationairport = Destinationairport.Beijing_Capital_International_Airport;
+                this.destinationairport = Destinationairport.BEIJING_CAPITAL_INTERNATIONAL_AIRPORT;
                 break;
             case "3":
                 this.tripDestination = TripDestination.OULU;
-                this.destinationairport = Destinationairport.Oulu_Airport;
+                this.destinationairport = Destinationairport.OULU_AIRPORT;
                 break;
             case "4":
                 this.tripDestination = TripDestination.HELSINKI;
-                this.destinationairport = Destinationairport.Helsinki_Airport;
+                this.destinationairport = Destinationairport.HELSINKI_AIRPORT;
                 break;
             default:
                 System.out.println("Please enter the correct number");
@@ -158,17 +158,6 @@ public class FlightBooking {
 
     }
 
-    public static int daysBetween(LocalDate date1str, LocalDate date2str) throws ParseException {
-        int count = 0;
-        if("".equals(date1str) || date1str == null || "".equals(date2str) || date2str == null) {
-            return count;
-        }
-        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-        Date date1 = format.parse(String.valueOf(date1str));
-        Date date2 = format.parse(String.valueOf(date2str));
-        count = Math.abs((int) ((date1.getTime() - date2.getTime()) / (1000*3600*24)));
-        return count;
-    }
     public void setClassification(String _source,String _destination)
     {
       String x = _source +  _destination;
